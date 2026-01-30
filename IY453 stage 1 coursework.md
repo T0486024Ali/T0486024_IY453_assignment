@@ -8,7 +8,7 @@
 | Module Tutor Name  | Shore Jonathan.                           |
 | Student ID Number  | T0486024                                  |
 | Date of Submission | 30/1/2026                                 |
-| Word Count         |                                           |
+| Word Count         | 771.                                      |
 
 - [x] *I confirm that this assignment is my own work. Where I have referred to academic sources, I have provided in-text citations and included the sources in
   the final reference list.*
@@ -74,8 +74,6 @@ Class diagram:
 (ChatGPT, 2026)
 
 ![](C:\Users\alimt\Downloads\ChatGPT%20Image%20Jan%2030,%202026,%2011_55_34%20AM.png)
-
-
 
 Full reference for this AI tool:
 ChatGPT. (2026). A class diagrasm for this text-based adventure game. OpenAI.
