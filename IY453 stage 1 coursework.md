@@ -57,3 +57,27 @@ ChatGPT. (2026). An IPO table for this text-based adventure game. OpenAI.
 prompt: Please give me an IPO table for this text-based adventure game.
 
 ### Algorithm design
+
+Flowchart:
+
+(ChatGPT, 2026)
+
+![](C:\Users\alimt\Downloads\ChatGPT%20Image%20Jan%2030,%202026,%2011_54_47%20AM.png)
+
+Full reference for this AI tool:
+ChatGPT. (2026). A flowchart for this text-based adventure game. OpenAI.
+
+prompt: Please give me a flowchart for this text-based adventure game.
+
+Class diagram:
+
+(ChatGPT, 2026)
+
+![](C:\Users\alimt\Downloads\ChatGPT%20Image%20Jan%2030,%202026,%2011_55_34%20AM.png)
+
+
+
+Full reference for this AI tool:
+ChatGPT. (2026). A class diagrasm for this text-based adventure game. OpenAI.
+
+prompt: Please give me a class diagram for this text-based adventure game.
