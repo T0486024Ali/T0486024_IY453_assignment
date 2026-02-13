@@ -13,10 +13,10 @@ public:
     string type; // weapon, armor, food
     int value;
 
-    Item(string N, string T, int V) {
-        name = N;
-        type = T;
-        value = V;
+    Item(string n, string t, int v) {
+        name = n;
+        type = t;
+        value = v;
     }
 };
 
@@ -52,19 +52,19 @@ public:
 };
 
 // Combat function
-void Combat(Player &player, string enemyName, int enemyPower) {
-    cout << "\nCombat! " << enemyName << " appears!\n";
-    int playerRoll = player.attack + (rand() % 6 + 1);
-    int enemyRoll = enemyPower + (rand() % 6 + 1);
+void Combat(Player &player, string enemyname, int enemypower) {
+    cout << "\nCombat! " << enemyname << " appears!\n";
+    int playerroll = player.attack + (rand() % 6 + 1);
+    int enemyroll = enemypower + (rand() % 6 + 1);
 
-    cout << "Your combat score: " << playerRoll << endl;
-    cout << enemyName << "'s combat score: " << enemyRoll << endl;
+    cout << "Your combat score: " << playerroll << endl;
+    cout << enemyname << "'s combat score: " << enemyroll << endl;
 
-    if (playerRoll >= enemyRoll) {
-        cout << "You defeated the " << enemyName << "!\n";
+    if (playerroll >= enemyroll) {
+        cout << "You defeated the " << enemyname << "!\n";
         player.score += 10;
     } else {
-        cout << "You were injured by the " << enemyName << "!\n";
+        cout << "You were injured by the " << enemyname << "!\n";
         player.health -= 5;
     }
 }
@@ -153,7 +153,7 @@ bool Scene5(Player &player) {
     if (choice == 1) {
         Combat(player, "Cave Troll", 8);
     } else if (choice == 2) {
-        cout << "You get bitten by leeches! Lose 1 health.\n";
+        cout << "You get bitten by leaches! Lose 1 health.\n";
         player.health -= 1;
     } else {
         cout << "Invalid choice. Try again.\n";

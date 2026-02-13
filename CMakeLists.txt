@@ -3,5 +3,7 @@ project(T0486024_IY453_assignment)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(T0486024_IY453_assignment main.cpp
-        T0486024_IY453_assignment.cpp)
+add_executable(T0486024_IY453_assignment
+        T0486024_IY453_assignment.cpp
+        T0486024_IY453_assignment.cpp
+)

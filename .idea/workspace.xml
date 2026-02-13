@@ -29,7 +29,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IY453_Stage 2_PNumber.docx" beforeDir="false" afterPath="$PROJECT_DIR$/IY453_Stage 2_PNumber.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +80,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "CMake Application.T0486024_IY453_assignment.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -117,7 +120,7 @@
       <workItem from="1769776070631" duration="12000" />
       <workItem from="1769883902361" duration="8000" />
       <workItem from="1769884839937" duration="25000" />
-      <workItem from="1770974486977" duration="1345000" />
+      <workItem from="1770974486977" duration="8585000" />
     </task>
     <task id="LOCAL-00001" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -127,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770974563140</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1770976206674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770976206674</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,16 +152,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add T0486024_IY453_assignment to git" />
     <option name="LAST_COMMIT_MESSAGE" value="Add T0486024_IY453_assignment to git" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>10</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
