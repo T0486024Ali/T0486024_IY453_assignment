@@ -38,7 +38,7 @@ public:
         score = 0;
     }
 
-    void showStats() {
+    void ShowStats() {
         cout << "\n--- " << name << "'s Stats ---\n";
         cout << "Health: " << health << endl;
         cout << "Attack: " << attack << endl;
@@ -52,19 +52,19 @@ public:
 };
 
 // Combat function
-void Combat(Player &player, string enemyname, int enemypower) {
-    cout << "\nCombat! " << enemyname << " appears!\n";
+void Combat(Player &player, string enemy_name, int enemy_power) {
+    cout << "\nCombat! " << enemy_name << " appears!\n";
     int playerroll = player.attack + (rand() % 6 + 1);
-    int enemyroll = enemypower + (rand() % 6 + 1);
+    int enemyroll = enemy_power + (rand() % 6 + 1);
 
     cout << "Your combat score: " << playerroll << endl;
-    cout << enemyname << "'s combat score: " << enemyroll << endl;
+    cout << enemy_name << "'s combat score: " << enemyroll << endl;
 
     if (playerroll >= enemyroll) {
-        cout << "You defeated the " << enemyname << "!\n";
+        cout << "You defeated the " << enemy_name << "!\n";
         player.score += 10;
     } else {
-        cout << "You were injured by the " << enemyname << "!\n";
+        cout << "You were injured by the " << enemy_name << "!\n";
         player.health -= 5;
     }
 }
@@ -85,7 +85,7 @@ void Puzzle(Player &player) {
 }
 
 // Function to pick an item
-void findItem(Player &player) {
+void FindItem(Player &player) {
     cout << "\nYou found a sword!\n";
     Item sword("Sword", "weapon", 3);
     player.inventory.push_back(sword);
@@ -121,7 +121,7 @@ bool Scene2(Player &player) {
     cin >> choice;
 
     if (choice == 1) {
-        findItem(player);
+        FindItem(player);
     } else if (choice == 2) {
         cout << "You walk past the chest.\n";
     } else {
@@ -633,10 +633,10 @@ bool Scene30(Player &player) {
 int main() {
     srand(time(0));
     cout << "Enter your player name: ";
-    string playerName;
-    getline(cin,playerName);
+    string player_name;
+    getline(cin,player_name);
 
-    Player player(playerName);
+    Player player(player_name);
 
     cout << "\nWelcome, " << player.name << "! Your adventure begins!\n";
 
@@ -727,7 +727,7 @@ int main() {
     if (player.health <= 0) { cout << "Game Over!\n"; return 0; }
 
     cout << "\nCongratulations! You completed the adventure.\n";
-    player.showStats();
+    player.ShowStats();
 
     return 0;
 }
