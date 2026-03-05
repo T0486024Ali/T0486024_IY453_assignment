@@ -64,14 +64,24 @@ public:
  }
  // Function to add an item.
  void FindItem(Player &player) {
-    cout << "\nYou found a sword!\n";
-    Item sword("Sword", "weapon", 3);
-    inventory.push_back(sword);
-    int attack = player.GetAttack();
-    attack += sword.GetValue();
-	player.SetAttack(attack);
-    player.GetAttack();
-    cout << "Your attack increased by " << sword.GetValue() << "!\n";
+	 cout << "\nYou found a sword!\n";
+ 	bool hassword = false;
+ 	for (Item item : inventory) {
+ 		if (item.GetName() == "Sword") {
+ 			hassword = true;
+ 		}
+ 	}
+ 	Item sword("Sword", "weapon", 3);
+ 	if (!hassword) {
+ 		inventory.push_back(sword);
+ 	}
+ 	else{
+ 		int attack = player.GetAttack();
+ 		attack += sword.GetValue();
+ 		player.SetAttack(attack);
+ 		player.GetAttack();
+ 		cout << "Your attack increased by " << sword.GetValue() << "!\n";
+ 	}
  }
  Player(string n) {
   name = n;
@@ -121,7 +131,7 @@ public:
 class Puzzle{
 public:
  // Puzzle function
- void PuzzleScenario(Player &player) {
+ void PuzzleScenario1(Player &player) {
     cout << "\nPuzzle Time!\n";
     cout << "What is 7 + 5? ";
     int answer;
@@ -137,6 +147,23 @@ public:
         health -= 3;
 		player.SetHealth(health);
     }
+ }
+	void PuzzleScenario2(Player &player) {
+ 	cout << "\nPuzzle Time!\n";
+ 	cout << "What is 12 + 20? ";
+ 	int answer;
+ 	cin >> answer;
+ 	int score = player.GetScore();
+ 	int health = player.GetHealth();
+ 	if (answer == 32) {
+ 		cout << "Correct! You gain 5 points.\n";
+ 		score += 5;
+ 		player.SetScore(score);
+ 	} else {
+ 		cout << "Wrong! You lose 3 health.\n";
+ 		health -= 3;
+ 		player.SetHealth(health);
+ 	}
  }
 };
 
@@ -185,8 +212,14 @@ public:
  bool Scene3(Player &player) {
     cout << "\nScene 3: You had a really big problem.\n";
 	Puzzle puzzle = Puzzle();
-    puzzle.PuzzleScenario(player);
+    puzzle.PuzzleScenario1(player);
     return true;
+ }
+	bool Scene4(Player &player) {
+ 	cout << "\nScene 4: You are stuck in a really embarrassing situation .\n";
+ 	Puzzle puzzle = Puzzle();
+ 	puzzle.PuzzleScenario2(player);
+ 	return true;
  }
 };
 
@@ -195,16 +228,17 @@ int main() {
     srand(time(0));
     cout << "Enter your player name: ";
     string player_name;
-    getline(cin,player_name);
-
+	while (!getline(cin, player_name)) {
+		cout << "Input error. Try again.\n";
+	}
     Player player(player_name);
 	Scene scene = Scene();
     cout << "\nWelcome, " << player.GetName() << "! Your adventure begins!\n";
 	 int scenariocount = 0;
      // Game has 30 scenarios to call.
-      while (scenarioCount < 30 && player.GetHealth() > 0) {
+      while (scenariocount < 30 && player.GetHealth() > 0) {
 
-        int randomScene = rand() % 3 + 1;
+        int randomScene = rand() % 4 + 1;
 
         if (randomScene == 1) {
             scene.Scene1(player);
@@ -215,8 +249,10 @@ int main() {
         else if (randomScene == 3) {
             scene.Scene3(player);
         }
-
-        scenarioCount++;
+        else if (randomScene == 4) {
+        	scene.Scene4(player);
+        }
+        scenariocount++;
 
         if (player.GetHealth() <= 0) {
             cout << "\nYou have no health left.\n";
@@ -224,13 +260,9 @@ int main() {
             return 0;
         }
       }
-        cout << "\nScenario " << scenariocount << " completed!\n";
-        player.ShowStats();
-    }
-
+	cout << "\nScenario " << scenariocount << " completed!\n";
     cout << "\nCongratulations! You completed the adventure.\n";
     cout << "Final Score: " << player.GetScore() << endl;
-    player.ShowStats();
-
+    player.ShowStats();s
     return 0;
 }
