@@ -200,16 +200,36 @@ int main() {
     Player player(player_name);
 	Scene scene = Scene();
     cout << "\nWelcome, " << player.GetName() << "! Your adventure begins!\n";
+	 int scenariocount = 0;
+     // Game has 30 scenarios to call.
+      while (scenarioCount < 30 && player.GetHealth() > 0) {
 
-    // The game with the 3 scenes.
-    scene.Scene1(player);
-    if (player.GetHealth() <= 0) { cout << "Game Over!\n"; return 0; }
-	scene.Scene2(player);
-    if (player.GetHealth() <= 0) { cout << "Game Over!\n"; return 0; }
-	scene.Scene3(player);
-    if (player.GetHealth() <= 0) { cout << "Game Over!\n"; return 0; }
+        int randomScene = rand() % 3 + 1;
+
+        if (randomScene == 1) {
+            scene.Scene1(player);
+        }
+        else if (randomScene == 2) {
+            scene.Scene2(player);
+        }
+        else if (randomScene == 3) {
+            scene.Scene3(player);
+        }
+
+        scenarioCount++;
+
+        if (player.GetHealth() <= 0) {
+            cout << "\nYou have no health left.\n";
+            cout << "Game Over!\n";
+            return 0;
+        }
+      }
+        cout << "\nScenario " << scenariocount << " completed!\n";
+        player.ShowStats();
+    }
 
     cout << "\nCongratulations! You completed the adventure.\n";
+    cout << "Final Score: " << player.GetScore() << endl;
     player.ShowStats();
 
     return 0;
