@@ -96,6 +96,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Education\NTU universty subjects\Year one\Software design and implementation\Files\Week 3\T0486024_IY453_assignment\cmake-build-debug" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="T0486024_IY453_assignment" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="T0486024_IY453_assignment" TARGET_NAME="T0486024_IY453_assignment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T0486024_IY453_assignment" RUN_TARGET_NAME="T0486024_IY453_assignment">
       <method v="2">
@@ -122,7 +127,12 @@
       <workItem from="1772667873288" duration="13679000" />
       <workItem from="1772717456509" duration="10000" />
       <workItem from="1772717784645" duration="3126000" />
-      <workItem from="1772741958587" duration="8285000" />
+      <workItem from="1772741958587" duration="8371000" />
+      <workItem from="1772751235772" duration="633000" />
+      <workItem from="1773058695935" duration="4029000" />
+      <workItem from="1773066340362" duration="1789000" />
+      <workItem from="1773098084617" duration="12895000" />
+      <workItem from="1773185254685" duration="5447000" />
     </task>
     <task id="LOCAL-00001" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -284,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772727072281</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1772751074668</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1772751074668</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,5 +316,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add T0486024_IY453_assignment to git" />
     <option name="LAST_COMMIT_MESSAGE" value="Add T0486024_IY453_assignment to git" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../../Project 4 week 2/main.cpp</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

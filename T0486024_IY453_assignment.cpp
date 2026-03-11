@@ -3,6 +3,9 @@
 #include <string>
 #include <cstdlib> // for rand().
 #include <ctime>   // for seeding rand.
+#include <fstream>
+#include <limits>
+#include <sstream>
 
 using namespace std;
 
@@ -94,15 +97,116 @@ public:
    cout << "\n--- " << name << "'s Stats ---\n";
    cout << "Health: " << health << endl;
    cout << "Attack: " << attack << endl;
-   cout << "Defense: " << defense << endl;
+   cout << "Defense: " <<defense << endl;
    cout << "Score: " << score << endl;
    cout << "Inventory: ";
    if (inventory.empty()) cout << "None";
     	for (Item item : inventory) cout << item.GetName() << " ";
         cout << "\n--------------------\n";
    }
+
+   // Writing to a file.
+   bool WriteToFile(int currentscene) {
+    fstream fs("savegame.txt", ios::out);
+
+    if (!fs.is_open())
+    {
+        cout << "Error: Could not open save file.\n";
+        return false;
+    }
+
+    // Write player information
+    fs << name << endl;
+    fs << health << endl;
+    fs << attack << endl;
+    fs << defense << endl;
+    fs << score << endl;
+
+    // Write current scene
+    fs << currentscene << endl;
+
+    // Write inventory size.
+    fs << inventory.size() << endl;
+
+    // Write items
+    for ( Item item : inventory)
+    {
+        fs << item.GetName() << ","
+           << item.GetType() << ","
+           << item.GetValue() << endl;
+    }
+
+    if (fs.fail())
+    {
+        cout << "Error: Failed while writing save file.\n";
+        return false;
+    }
+
+    fs.close();
+    return true;
+}
+
+  // Reading from a file.
+  bool LoadGame(int currentscene) {
+    ifstream fs("savegame.txt");
+
+    if (!fs.is_open())
+    {
+        cout << "Error: Save file not found.\n";
+        return false;
+    }
+
+    string name;
+    int health, attack, defense, score;
+    int inventorysize;
+
+    // Read player data
+    if (!(fs >> name >> health >> attack >> defense >> score >> currentscene))
+    {
+        cout << "Error: Save file corrupted.\n";
+        return false;
+    }
+
+    // Read inventory size
+    if (!(fs >> inventorysize))
+    {
+        cout << "Error reading inventory size.\n";
+        return false;
+    }
+
+    string line;
+    getline(fs, line); // clear newline
+
+    for (int i = 0; i < inventorysize; i++)
+    {
+        if (!getline(fs, line))
+        {
+            cout << "Error reading inventory item.\n";
+            return false;
+        }
+
+        stringstream ss(line);
+
+        string itemName, itemType, valueStr;
+
+        if (!getline(ss, itemName, ',') ||
+            !getline(ss, itemType, ',') ||
+            !getline(ss, valueStr))
+        {
+            cout << "Error parsing inventory item.\n";
+            return false;
+        }
+        int value = stoi(valueStr);
+    }
+
+    fs.close();
+
+    cout << "Game loaded successfully!\n";
+    return true;
+}
 };
 
+// Combat scenario class.
 class Combat{
 public:
  // Combat function
@@ -128,14 +232,21 @@ public:
  }
 };
 
+// Puzzle scenario class.
 class Puzzle{
 public:
- // Puzzle function
+ // Puzzle function.
+ // Puzzle 1.
  void PuzzleScenario1(Player &player) {
     cout << "\nPuzzle Time!\n";
     cout << "What is 7 + 5? ";
     int answer;
-    cin >> answer;
+    while (!(cin >> answer)) {
+        cout << "Invalid input!\n";
+        cout << "Please enter a valid input: \n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 	int score = player.GetScore();
 	int health = player.GetHealth();
     if (answer == 12) {
@@ -148,11 +259,17 @@ public:
 		player.SetHealth(health);
     }
  }
+	// Puzzle 2.
 	void PuzzleScenario2(Player &player) {
  	cout << "\nPuzzle Time!\n";
  	cout << "What is 12 + 20? ";
  	int answer;
- 	cin >> answer;
+ 	while (!(cin >> answer)) {
+        cout << "Invalid input!\n";
+        cout << "Please enter a valid input: \n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
  	int score = player.GetScore();
  	int health = player.GetHealth();
  	if (answer == 32) {
@@ -167,15 +284,22 @@ public:
  }
 };
 
+// Scene class.
 class Scene{
 public:
  // Scenes functions.
+ // Combat scene.
  bool Scene1(Player &player) {
     cout << "\nScene 1: You enter a dark cave.\n";
     cout << "1) Cross the rickety bridge\n";
     cout << "2) Swim in the shallow pool\n";
     int choice;
-    cin >> choice;
+    while (!(cin >> choice)) {
+        cout << "Invalid input!\n";
+        cout << "Please enter a valid input: \n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 	int health = player.GetHealth();
 	Combat combat = Combat();
     if (choice == 1) {
@@ -190,12 +314,18 @@ public:
     }
     return true;
  }
+ //	Item collection secne.
  bool Scene2(Player &player) {
     cout << "\nScene 2: You find a treasure chest.\n";
     cout << "1) Open it\n";
     cout << "2) Ignore it\n";
     int choice;
-    cin >> choice;
+    while (!(cin >> choice)) {
+        cout << "Invalid input!\n";
+        cout << "Please enter a valid input: \n";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 	int health = player.GetHealth();
     if (choice == 1) {
         player.FindItem(player);
@@ -209,13 +339,15 @@ public:
     }
     return true;
  }
+ // Puzzle scene 1.
  bool Scene3(Player &player) {
     cout << "\nScene 3: You had a really big problem.\n";
 	Puzzle puzzle = Puzzle();
     puzzle.PuzzleScenario1(player);
     return true;
  }
-	bool Scene4(Player &player) {
+ // puzzle scene 2.
+ bool Scene4(Player &player) {
  	cout << "\nScene 4: You are stuck in a really embarrassing situation .\n";
  	Puzzle puzzle = Puzzle();
  	puzzle.PuzzleScenario2(player);
@@ -223,7 +355,7 @@ public:
  }
 };
 
-// Main game loop
+// Main game loop.
 int main() {
     srand(time(0));
     cout << "Enter your player name: ";
@@ -253,7 +385,8 @@ int main() {
         	scene.Scene4(player);
         }
         scenariocount++;
-
+	    player.WriteToFile(scenariocount);
+		player.LoadGame(scenariocount);
         if (player.GetHealth() <= 0) {
             cout << "\nYou have no health left.\n";
             cout << "Game Over!\n";
@@ -263,6 +396,6 @@ int main() {
 	cout << "\nScenario " << scenariocount << " completed!\n";
     cout << "\nCongratulations! You completed the adventure.\n";
     cout << "Final Score: " << player.GetScore() << endl;
-    player.ShowStats();s
+    player.ShowStats();
     return 0;
 }
