@@ -363,6 +363,10 @@ int main() {
 	while (!getline(cin, player_name)) {
 		cout << "Input error. Try again.\n";
 	}
+    while (player_name.empty()) {
+    cout << "Name cannot be empty. Enter your name: ";
+    getline(cin, player_name);
+   }
     Player player(player_name);
 	Scene scene = Scene();
     cout << "\nWelcome, " << player.GetName() << "! Your adventure begins!\n";
