@@ -40,8 +40,19 @@ private:
     int attack;
     int defense;
     int score;
-    vector<Item> inventory;
+	vector<Item>& inventory;
 public:
+ // A function to pass a vector to this class
+ Player(vector<Item>& item, string n): inventory(item) {
+	name = n;
+	health = 20;
+  	attack = 5;
+  	defense = 2;
+  	score = 0;
+ }
+ int GetInventorySize() {
+	return inventory.size();
+ }
  string GetName() {
 	return name;
  }
@@ -57,6 +68,12 @@ public:
  int GetScore() {
 	return score;
  }
+ void AddItem(Item item){
+	inventory.push_back(item);
+ }
+ void ClearInventory(){
+	inventory.clear();
+ }
  void SetAttack(int attack){
 	this->attack = attack;
  }
@@ -65,34 +82,8 @@ public:
  }void SetHealth(int health){
 	this->health = health;
  }
- // Function to add an item.
- void FindItem(Player &player) {
-	 cout << "\nYou found a sword!\n";
- 	bool hassword = false;
- 	for (Item item : inventory) {
- 		if (item.GetName() == "Sword") {
- 			hassword = true;
- 		}
- 	}
- 	Item sword("Sword", "weapon", 3);
- 	if (!hassword) {
- 		inventory.push_back(sword);
- 	}
- 	else{
- 		int attack = player.GetAttack();
- 		attack += sword.GetValue();
- 		player.SetAttack(attack);
- 		player.GetAttack();
- 		cout << "Your attack increased by " << sword.GetValue() << "!\n";
- 	}
- }
- Player(string n) {
-  name = n;
-  health = 20;
-  attack = 5;
-  defense = 2;
-  score = 0;
-  }
+
+  // A function that shows the stats of the player class
   void ShowStats() {
    cout << "\n--- " << name << "'s Stats ---\n";
    cout << "Health: " << health << endl;
@@ -104,50 +95,69 @@ public:
     	for (Item item : inventory) cout << item.GetName() << " ";
         cout << "\n--------------------\n";
    }
+};
 
-   // Writing to a file.
-   bool WriteToFile(int currentscene) {
-    fstream fs("savegame.txt", ios::out);
+// A class that writes to a file
+class WriteToFile{
+private:
+	vector<Item>& inventory;
+public:
+	// A function to pass a vector to this class
+	WriteToFile(vector<Item>& item): inventory(item) {}
+	// Writing to a file.
+	bool WriteToAFile(int currentscene, Player &player) {
+		fstream fs("savegame.txt", ios::out);
 
-    if (!fs.is_open())
-    {
-        cout << "Error: Could not open save file.\n";
-        return false;
-    }
+    	if (!fs.is_open())
+    	{
+        	cout << "Error: Could not open save file.\n";
+        	return false;
+    	}
 
-    // Write player information
-    fs << name << endl;
-    fs << health << endl;
-    fs << attack << endl;
-    fs << defense << endl;
-    fs << score << endl;
+		string name = player.GetName();
+		int health = player.GetHealth();
+		int attack = player.GetAttack();
+		int defense = player.GetDefense();
+		int score = player.GetScore();
+    	int inventorysize = player.GetInventorySize();
 
-    // Write current scene
-    fs << currentscene << endl;
+    	// Write player information
+    	fs << name << endl;
+    	fs << health << endl;
+    	fs << attack << endl;
+    	fs << defense << endl;
+    	fs << score << endl;
 
-    // Write inventory size.
-    fs << inventory.size() << endl;
+    	// Write current scene
+    	fs << currentscene << endl;
 
-    // Write items
-    for ( Item item : inventory)
-    {
-        fs << item.GetName() << ","
-           << item.GetType() << ","
-           << item.GetValue() << endl;
-    }
+    	// Write inventory size.
+    	fs << inventorysize << endl;
 
-    if (fs.fail())
-    {
-        cout << "Error: Failed while writing save file.\n";
-        return false;
-    }
+    	// Write items
+    	for ( Item item : inventory)
+    	{
+        	fs << item.GetName() << ","
+         	<< item.GetType() << ","
+           	<< item.GetValue() << endl;
+    	}
 
-    fs.close();
-    return true;
+    	if (fs.fail())
+    	{
+        	cout << "Error: Failed while writing save file.\n";
+        	return false;
+    	}
+
+    	fs.close();
+    	return true;
 }
+};
 
-  // Reading from a file.
-  bool LoadGame(int currentscene) {
+// A class that reads from a file
+class ReadFromFile{
+public:
+	// Reading from a file.
+  bool LoadGame(int &currentscene,Player &player) {
     ifstream fs("savegame.txt");
 
     if (!fs.is_open())
@@ -156,12 +166,16 @@ public:
         return false;
     }
 
-    string name;
-    int health, attack, defense, score;
-    int inventorysize;
+	string name = player.GetName();
+	int health = player.GetHealth();
+	int attack = player.GetAttack();
+	int defense = player.GetDefense();
+	int score = player.GetScore();
+    int inventorysize = player.GetInventorySize();
+	getline(fs,name);
 
     // Read player data
-    if (!(fs >> name >> health >> attack >> defense >> score >> currentscene))
+    if (!(fs >> health >> attack >> defense >> score >> currentscene))
     {
         cout << "Error: Save file corrupted.\n";
         return false;
@@ -174,8 +188,11 @@ public:
         return false;
     }
 
+	player.ClearInventory();
     string line;
     getline(fs, line); // clear newline
+	string itemname, itemtype;
+	string valuestr;
 
     for (int i = 0; i < inventorysize; i++)
     {
@@ -187,23 +204,50 @@ public:
 
         stringstream ss(line);
 
-        string itemName, itemType, valueStr;
-
-        if (!getline(ss, itemName, ',') ||
-            !getline(ss, itemType, ',') ||
-            !getline(ss, valueStr))
+        if (!getline(ss, itemname, ',') ||
+            !getline(ss, itemtype, ',') ||
+            !getline(ss, valuestr, ','))
         {
             cout << "Error parsing inventory item.\n";
             return false;
         }
-        int value = stoi(valueStr);
+	int value = stoi(valuestr);
+    player.AddItem(Item(itemname, itemtype, value));
     }
-
     fs.close();
-
     cout << "Game loaded successfully!\n";
     return true;
 }
+};
+
+// A class the does the item collection scenario.
+class FindItem{
+private:
+	vector<Item>& inventory;
+public:
+	// A function to pass a vector to this class
+	FindItem(vector<Item>& item): inventory(item) {}
+	// Function to add an item.
+    void FindItemScenario(Player &player) {
+		cout << "\nYou found a sword!\n";
+ 		bool hassword = false;
+ 		for (Item item : inventory) {
+ 			if (item.GetName() == "Sword") {
+ 				hassword = true;
+ 			}
+ 		}
+ 		Item sword("Sword", "weapon", 3);
+ 		if (!hassword) {
+ 			inventory.push_back(sword);
+ 		}
+ 		else{
+ 			int attack = player.GetAttack();
+ 			attack += sword.GetValue();
+ 			player.SetAttack(attack);
+ 			player.GetAttack();
+ 			cout << "Your attack increased by " << sword.GetValue() << "!\n";
+ 		}
+ 	}
 };
 
 // Combat scenario class.
@@ -212,14 +256,14 @@ public:
  // Combat function
  void CombatScenario(Player &player, string enemy_name, int enemy_power) {
     cout << "\nCombat! " << enemy_name << " appears!\n";
-	int attack = player.GetAttack();
-    int playerroll = attack + (rand() % 6 + 1);
+    int playerroll = player.GetAttack() + (rand() % 6 + 1);
     int enemyroll = enemy_power + (rand() % 6 + 1);
-	player.SetAttack(playerroll);
+
     cout << "Your combat score: " << playerroll << endl;
     cout << enemy_name << "'s combat score: " << enemyroll << endl;
 	int score = player.GetScore();
 	int health = player.GetHealth();
+
     if (playerroll >= enemyroll) {
         cout << "You defeated the " << enemy_name << "!\n";
         score += 10;
@@ -289,7 +333,7 @@ class Scene{
 public:
  // Scenes functions.
  // Combat scene.
- bool Scene1(Player &player) {
+ void Scene1(Player &player) {
     cout << "\nScene 1: You enter a dark cave.\n";
     cout << "1) Cross the rickety bridge\n";
     cout << "2) Swim in the shallow pool\n";
@@ -312,10 +356,9 @@ public:
         cout << "Invalid choice. Try again.\n";
         return Scene1(player);
     }
-    return true;
  }
  //	Item collection secne.
- bool Scene2(Player &player) {
+ void Scene2(FindItem &finditem, Player &player) {
     cout << "\nScene 2: You find a treasure chest.\n";
     cout << "1) Open it\n";
     cout << "2) Ignore it\n";
@@ -328,36 +371,34 @@ public:
     }
 	int health = player.GetHealth();
     if (choice == 1) {
-        player.FindItem(player);
+        finditem.FindItemScenario(player);
     } else if (choice == 2) {
          cout << "You walk past the chest.\n";
          health -= 1;
 		 player.SetHealth(health);
     } else {
         cout << "Invalid choice. Try again.\n";
-        return Scene2(player);
+        return Scene2(finditem,player);
     }
-    return true;
  }
  // Puzzle scene 1.
- bool Scene3(Player &player) {
+ void Scene3(Player &player) {
     cout << "\nScene 3: You had a really big problem.\n";
 	Puzzle puzzle = Puzzle();
     puzzle.PuzzleScenario1(player);
-    return true;
  }
  // puzzle scene 2.
- bool Scene4(Player &player) {
+ void Scene4(Player &player) {
  	cout << "\nScene 4: You are stuck in a really embarrassing situation .\n";
  	Puzzle puzzle = Puzzle();
  	puzzle.PuzzleScenario2(player);
- 	return true;
  }
 };
 
 // Main game loop.
 int main() {
     srand(time(0));
+	vector<Item> inventory;
     cout << "Enter your player name: ";
     string player_name;
 	while (!getline(cin, player_name)) {
@@ -367,7 +408,10 @@ int main() {
     cout << "Name cannot be empty. Enter your name: ";
     getline(cin, player_name);
    }
-    Player player(player_name);
+    Player player(inventory,player_name);
+	FindItem finditem(inventory);
+	ReadFromFile readfromfile;
+	WriteToFile writetofile(inventory);
 	Scene scene = Scene();
     cout << "\nWelcome, " << player.GetName() << "! Your adventure begins!\n";
 	 int scenariocount = 0;
@@ -380,7 +424,7 @@ int main() {
             scene.Scene1(player);
         }
         else if (randomScene == 2) {
-            scene.Scene2(player);
+            scene.Scene2(finditem,player);
         }
         else if (randomScene == 3) {
             scene.Scene3(player);
@@ -389,11 +433,12 @@ int main() {
         	scene.Scene4(player);
         }
         scenariocount++;
-	    player.WriteToFile(scenariocount);
-		player.LoadGame(scenariocount);
+	    writetofile.WriteToAFile(scenariocount,player);
+		readfromfile.LoadGame(scenariocount,player);
         if (player.GetHealth() <= 0) {
             cout << "\nYou have no health left.\n";
             cout << "Game Over!\n";
+			player.ShowStats();
             return 0;
         }
       }

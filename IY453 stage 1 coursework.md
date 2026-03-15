@@ -28,7 +28,7 @@ The game uses at least 30 binary choices in each scenario to meet the functional
 ### The IPO (input, process, and output table)
 
 | **Feature / Task**  | **Input**                          | **Process**                                   | **Output**                                  |
-| ------------------- | ---------------------------------- | --------------------------------------------- | ------------------------------------------- |
+|:------------------- | ---------------------------------- | --------------------------------------------- | ------------------------------------------- |
 | Start game          | Player name (string)               | Store name in Player object                   | Personalized welcome message                |
 | Main menu selection | Menu choice (New Game / Load Game) | Validate choice and branch program flow       | Game starts or saved game loads             |
 | Scene navigation    | Binary choice (1 or 2)             | Validate input and determine next scene       | New scenario description                    |
