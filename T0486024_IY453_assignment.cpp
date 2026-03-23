@@ -221,12 +221,12 @@ public:
 };
 
 // A class the does the item collection scenario.
-class FindItem{
+class ItemCollection{
 private:
 	vector<Item>& inventory;
 public:
 	// A function to pass a vector to this class
-	FindItem(vector<Item>& item): inventory(item) {}
+	ItemCollection(vector<Item>& item): inventory(item) {}
 	// Function to add an item.
     void FindItemScenario(Player &player) {
 		cout << "\nYou found a sword!\n";
@@ -333,7 +333,7 @@ class Scene{
 public:
  // Scenes functions.
  // Combat scene.
- void Scene1(Player &player) {
+ void CombatScene(Player &player) {
     cout << "\nScene 1: You enter a dark cave.\n";
     cout << "1) Cross the rickety bridge\n";
     cout << "2) Swim in the shallow pool\n";
@@ -354,11 +354,11 @@ public:
 		player.SetHealth(health);
     } else {
         cout << "Invalid choice. Try again.\n";
-        return Scene1(player);
+        return CombatScene(player);
     }
  }
  //	Item collection secne.
- void Scene2(FindItem &finditem, Player &player) {
+ void ItemCollectionScene(ItemCollection &item, Player &player) {
     cout << "\nScene 2: You find a treasure chest.\n";
     cout << "1) Open it\n";
     cout << "2) Ignore it\n";
@@ -371,24 +371,24 @@ public:
     }
 	int health = player.GetHealth();
     if (choice == 1) {
-        finditem.FindItemScenario(player);
+        item.FindItemScenario(player);
     } else if (choice == 2) {
          cout << "You walk past the chest.\n";
          health -= 1;
 		 player.SetHealth(health);
     } else {
         cout << "Invalid choice. Try again.\n";
-        return Scene2(finditem,player);
+        return ItemCollectionScene(item,player);
     }
  }
  // Puzzle scene 1.
- void Scene3(Player &player) {
+ void PuzzleScene1(Player &player) {
     cout << "\nScene 3: You had a really big problem.\n";
 	Puzzle puzzle = Puzzle();
     puzzle.PuzzleScenario1(player);
  }
  // puzzle scene 2.
- void Scene4(Player &player) {
+ void PuzzleScene2(Player &player) {
  	cout << "\nScene 4: You are stuck in a really embarrassing situation .\n";
  	Puzzle puzzle = Puzzle();
  	puzzle.PuzzleScenario2(player);
@@ -409,7 +409,7 @@ int main() {
     getline(cin, player_name);
    }
     Player player(inventory,player_name);
-	FindItem finditem(inventory);
+	ItemCollection item(inventory);
 	ReadFromFile readfromfile;
 	WriteToFile writetofile(inventory);
 	Scene scene = Scene();
@@ -421,16 +421,16 @@ int main() {
         int randomScene = rand() % 4 + 1;
 
         if (randomScene == 1) {
-            scene.Scene1(player);
+            scene.CombatScene(player);
         }
         else if (randomScene == 2) {
-            scene.Scene2(finditem,player);
+            scene.ItemCollectionScene(item,player);
         }
         else if (randomScene == 3) {
-            scene.Scene3(player);
+            scene.PuzzleScene1(player);
         }
         else if (randomScene == 4) {
-        	scene.Scene4(player);
+        	scene.PuzzleScene2(player);
         }
         scenariocount++;
 	    writetofile.WriteToAFile(scenariocount,player);
