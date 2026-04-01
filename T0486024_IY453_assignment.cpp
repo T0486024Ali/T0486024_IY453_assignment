@@ -244,7 +244,6 @@ public:
  			int attack = player.GetAttack();
  			attack += sword.GetValue();
  			player.SetAttack(attack);
- 			player.GetAttack();
  			cout << "Your attack increased by " << sword.GetValue() << "!\n";
  		}
  	}
@@ -334,7 +333,7 @@ public:
  // Scenes functions.
  // Combat scene.
  void CombatScene(Player &player) {
-    cout << "\nScene 1: You enter a dark cave.\n";
+    cout << "\nCombat Scene: You enter a dark cave.\n";
     cout << "1) Cross the rickety bridge\n";
     cout << "2) Swim in the shallow pool\n";
     int choice;
@@ -357,9 +356,9 @@ public:
         return CombatScene(player);
     }
  }
- //	Item collection secne.
+ //	Item collection scene.
  void ItemCollectionScene(ItemCollection &item, Player &player) {
-    cout << "\nScene 2: You find a treasure chest.\n";
+    cout << "\nItem Collection scene: You find a treasure chest.\n";
     cout << "1) Open it\n";
     cout << "2) Ignore it\n";
     int choice;
@@ -383,13 +382,13 @@ public:
  }
  // Puzzle scene 1.
  void PuzzleScene1(Player &player) {
-    cout << "\nScene 3: You had a really big problem.\n";
+    cout << "\nPuzzle scene 1: You had a really big problem.\n";
 	Puzzle puzzle = Puzzle();
     puzzle.PuzzleScenario1(player);
  }
  // puzzle scene 2.
  void PuzzleScene2(Player &player) {
- 	cout << "\nScene 4: You are stuck in a really embarrassing situation .\n";
+ 	cout << "\nPuzzle scene 2: You are stuck in a really embarrassing situation .\n";
  	Puzzle puzzle = Puzzle();
  	puzzle.PuzzleScenario2(player);
  }
