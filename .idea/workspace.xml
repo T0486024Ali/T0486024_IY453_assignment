@@ -28,7 +28,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git" />
+    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flowchart image 6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Flowchart image 6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IY453_Stage 4_PNumber.docx" beforeDir="false" afterPath="$PROJECT_DIR$/IY453_Stage 4_PNumber.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,6 +97,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alimt&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,6 +115,11 @@
   </component>
   <component name="RunManager">
     <configuration name="T0486024_IY453_assignment" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="T0486024_IY453_assignment" TARGET_NAME="T0486024_IY453_assignment" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="T0486024_IY453_assignment" RUN_TARGET_NAME="T0486024_IY453_assignment">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -149,7 +165,10 @@
       <workItem from="1774723710699" duration="500000" />
       <workItem from="1774864460797" duration="1232000" />
       <workItem from="1774993615355" duration="6459000" />
-      <workItem from="1775002684876" duration="6234000" />
+      <workItem from="1775002684876" duration="6465000" />
+      <workItem from="1775092369663" duration="46000" />
+      <workItem from="1775231985160" duration="15976000" />
+      <workItem from="1775251458664" duration="1428000" />
     </task>
     <task id="LOCAL-00001" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -423,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775011261237</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775011311391</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1775011311391</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,16 +464,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add T0486024_IY453_assignment to git" />
     <option name="LAST_COMMIT_MESSAGE" value="Add T0486024_IY453_assignment to git" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/../../Project 4 week 2/main.cpp</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
