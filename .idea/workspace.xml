@@ -154,7 +154,7 @@
       <workItem from="1775092369663" duration="46000" />
       <workItem from="1775231985160" duration="15976000" />
       <workItem from="1775251458664" duration="9646000" />
-      <workItem from="1775317670909" duration="293000" />
+      <workItem from="1775317670909" duration="601000" />
     </task>
     <task id="LOCAL-00001" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -460,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775317824309</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775318015588</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1775318015588</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
