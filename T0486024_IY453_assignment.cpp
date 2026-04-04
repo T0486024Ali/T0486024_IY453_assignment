@@ -396,15 +396,15 @@ public:
 
 // Main game loop.
 int main() {
-    srand(time(0));
+srand(time(0));
     vector<Item> inventory;
     cout << "Enter your player name: ";
     string player_name;
     while (!getline(cin, player_name)) {
        cout << "Input error. Try again.\n";
        cout << "Please enter a valid input: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+       cin.clear();
+       cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
     while (player_name.empty()) {
     cout << "Name cannot be empty. Enter your name: ";
@@ -412,39 +412,39 @@ int main() {
    }
     Player player(inventory,player_name);
     ItemCollection item(inventory);
-    ReadFromFile readfromfile;
-    WriteToFile writetofile(inventory);
+    ReadFromFile read_from_file;
+    WriteToFile write_to_file(inventory);
     Scene scene = Scene();
     cout << "\nWelcome, " << player.GetName() << "! Your adventure begins!\n";
-     int scenariocount = 0;
-     // Game has 30 scenarios to call.
-      while (scenariocount < 30 && player.GetHealth() > 0) {
+    int scenario_count = 0;
+    // Game has 30 scenarios to call.
+    while (scenario_count < 30 && player.GetHealth() > 0) {
 
-        int randomScene = rand() % 4 + 1;
+    int random_scene = rand() % 4 + 1;
 
-        if (randomScene == 1) {
-            scene.CombatScene(player);
-        }
-        else if (randomScene == 2) {
-            scene.ItemCollectionScene(item,player);
-        }
-        else if (randomScene == 3) {
-            scene.PuzzleScene1(player);
-        }
-        else if (randomScene == 4) {
-            scene.PuzzleScene2(player);
-        }
-        scenariocount++;
-        writetofile.WriteToAFile(scenariocount,player);
-       readfromfile.LoadGame(scenariocount,player);
-        if (player.GetHealth() <= 0) {
-            cout << "\nYou have no health left.\n";
-            cout << "Game Over!\n";
-            player.ShowStats();
-            return 0;
-        }
-      }
-    cout << "\nScenario " << scenariocount << " completed!\n";
+    if (random_scene == 1) {
+       scene.CombatScene(player);
+    }
+    else if (random_scene == 2) {
+       scene.ItemCollectionScene(item,player);
+    }
+    else if (random_scene == 3) {
+       scene.PuzzleScene1(player);
+    }
+    else if (random_scene == 4) {
+       scene.PuzzleScene2(player);
+    }
+    scenario_count++;
+    write_to_file.WriteToAFile(scenario_count,player);
+    read_from_file.LoadGame(scenario_count,player);
+    if (player.GetHealth() <= 0) {
+       cout << "\nYou have no health left.\n";
+       cout << "Game Over!\n";
+       player.ShowStats();
+       return 0;
+    }
+    }
+    cout << "\nScenario " << scenario_count << " completed!\n";
     cout << "\nCongratulations! You completed the adventure.\n";
     cout << "Final Score: " << player.GetScore() << endl;
     player.ShowStats();
