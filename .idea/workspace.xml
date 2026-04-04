@@ -28,11 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IY453_Stage 4_PNumber.docx" beforeDir="false" afterPath="$PROJECT_DIR$/IY453_Stage 4_PNumber.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/T0486024_IY453_assignment.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,11 +109,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -162,7 +153,7 @@
       <workItem from="1775002684876" duration="6465000" />
       <workItem from="1775092369663" duration="46000" />
       <workItem from="1775231985160" duration="15976000" />
-      <workItem from="1775251458664" duration="9555000" />
+      <workItem from="1775251458664" duration="9646000" />
     </task>
     <task id="LOCAL-00001" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -452,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775252964846</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775269905290</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1775269905290</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
