@@ -28,7 +28,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git" />
+    <list default="true" id="d72a2e93-1f37-4428-b9a0-d4e145b2f745" name="Changes" comment="Add T0486024_IY453_assignment to git">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,15 +166,8 @@
       <workItem from="1775498021848" duration="302000" />
       <workItem from="1775498955707" duration="3303000" />
       <workItem from="1775504039457" duration="1665000" />
-      <workItem from="1775508508715" duration="506000" />
-    </task>
-    <task id="LOCAL-00015" summary="Add T0486024_IY453_assignment to git">
-      <option name="closed" value="true" />
-      <created>1772668233398</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1772668233398</updated>
+      <workItem from="1775508508715" duration="618000" />
+      <workItem from="1775513881615" duration="506000" />
     </task>
     <task id="LOCAL-00016" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -558,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775508629797</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775509033776</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1775509033776</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
