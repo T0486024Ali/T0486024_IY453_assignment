@@ -290,6 +290,7 @@ public:
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     int score = player.GetScore();
     int health = player.GetHealth();
     if (answer == 12) {
@@ -313,6 +314,7 @@ public:
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     int score = player.GetScore();
     int health = player.GetHealth();
     if (answer == 32) {
@@ -337,12 +339,13 @@ public:
     cout << "1) Cross the rickety bridge\n";
     cout << "2) Swim in the shallow pool\n";
     int choice;
-    while (!(cin >> choice)) {
-        cout << "Invalid input!\n";
-        cout << "Please enter a valid input: \n";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
+     while (!(cin >> choice)) {
+         cout << "Invalid input!\n";
+         cout << "Please enter a valid input: \n";
+         cin.clear();
+         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+     }
+     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     int health = player.GetHealth();
     Combat combat = Combat();
     if (choice == 1) {
@@ -368,6 +371,7 @@ public:
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     int health = player.GetHealth();
     if (choice == 1) {
         item.FindItemScenario(player);
