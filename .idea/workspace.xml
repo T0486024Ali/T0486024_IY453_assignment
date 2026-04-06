@@ -165,23 +165,7 @@
       <workItem from="1775496318847" duration="1126000" />
       <workItem from="1775498021848" duration="302000" />
       <workItem from="1775498955707" duration="3303000" />
-      <workItem from="1775504039457" duration="1436000" />
-    </task>
-    <task id="LOCAL-00011" summary="Add T0486024_IY453_assignment to git">
-      <option name="closed" value="true" />
-      <created>1772449703862</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1772449703862</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Add T0486024_IY453_assignment to git">
-      <option name="closed" value="true" />
-      <created>1772451095250</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1772451095250</updated>
+      <workItem from="1775504039457" duration="1586000" />
     </task>
     <task id="LOCAL-00013" summary="Add T0486024_IY453_assignment to git">
       <option name="closed" value="true" />
@@ -559,7 +543,23 @@
       <option name="project" value="LOCAL" />
       <updated>1775505569825</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775505602969</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1775505602969</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Add T0486024_IY453_assignment to git">
+      <option name="closed" value="true" />
+      <created>1775505718965</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1775505718965</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

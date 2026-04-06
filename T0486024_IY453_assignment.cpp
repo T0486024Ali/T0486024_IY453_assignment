@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Item class
+// Item classsss
 class Item {
 private:
     string name;
